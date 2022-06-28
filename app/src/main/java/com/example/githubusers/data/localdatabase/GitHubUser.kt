@@ -7,5 +7,6 @@ import androidx.room.PrimaryKey
 data class GithubUser(
     @PrimaryKey val id: Long,
     val login: String,
-    val avatar_url: String
+    val avatar_url: String,
+    val html_url: String
 )
