@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.example.githubusers.R
 import com.example.githubusers.data.GithubUser
@@ -26,10 +25,8 @@ class CustomRecyclerAdapter(private val names: List<GithubUser>) :
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        //holder.avatarImage.setImageURI(names[position].avatar_url.toUri())
         Picasso.get().load(names[position].avatar_url).into(holder.avatarImage)
-        holder.largeTextView.text = with(names[position]) {"${id.toString()}. $login"}
-        //"id: ${githubUser.id.toString()}. ${githubUser.login}: ${githubUser.avatar_url}"
+        holder.largeTextView.text = with(names[position]) {"$login (id: ${id.toString()})"}
         holder.smallTextView.text = names[position].html_url
     }
 
